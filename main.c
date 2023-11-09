@@ -6,18 +6,22 @@
 int main(int argc, char *argv[]) {
 	
 	FILE* fp;
-	char str[1000];
-	int i;
-	//1.open file
-	fp=fopen("sample.txt","w");
-	//2.write file
-	for (i=0;i<3;i++){
-		printf("input a word : ");
-		scanf("%s",&str);
-		fprintf(fp,"%s\n",str);
-	}
+	char c;
 	
-	//3.close file
+	fp=fopen("sample.txt","r");
+	if (fp==NULL)
+		printf("can't read\n");
+		
+	//한 글자 읽은 거시 파일의 마지막이 아니라면
+	while ((c=fgetc(fp) )!= EOF)
+	{
+		//한글자 출력
+		putchar(c);
+		 
+	 } 
+	
+	
+	
 	fclose(fp);
 	return 0;
 }
